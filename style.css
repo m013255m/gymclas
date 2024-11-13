@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f4f4f9;
+    background-color: #f3f4f6;
     direction: rtl;
     color: #333;
 }
@@ -20,10 +20,12 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative;
 }
 
-h2 {
+.login-container h2 {
     margin-bottom: 20px;
+    color: #333;
 }
 
 input[type="text"], input[type="password"] {
@@ -51,22 +53,30 @@ button:hover {
     background-color: #218838;
 }
 
+#loadingIcon {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
 .control-panel {
     display: flex;
 }
 
 .sidebar {
     width: 250px;
-    background-color: #333;
-    color: white;
-    padding: 20px;
+    background: linear-gradient(145deg, #444, #333);
+    color: #fff;
     min-height: 100vh;
+    padding: 20px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .sidebar h2 {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
+    color: #fff;
 }
 
 .sidebar ul {
@@ -78,12 +88,18 @@ button:hover {
 }
 
 .sidebar ul li a {
-    color: #fff;
+    color: #ddd;
     text-decoration: none;
     font-size: 18px;
-    display: block;
+    display: flex;
+    align-items: center;
     padding: 10px;
-    transition: background 0.3s;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.sidebar ul li a i {
+    margin-left: 10px;
 }
 
 .sidebar ul li a:hover {
@@ -92,10 +108,45 @@ button:hover {
 
 .content {
     flex: 1;
-    padding: 20px;
+    padding: 40px;
 }
 
 h1 {
-    font-size: 28px;
     color: #444;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, select, button {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
 }
