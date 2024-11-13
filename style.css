@@ -6,72 +6,66 @@
 }
 
 body {
-    display: flex;
     background-color: #f4f4f9;
     direction: rtl;
+    color: #333;
 }
 
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 h2 {
     margin-bottom: 20px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-}
-
-label, input, button {
-    margin: 5px 0;
+input[type="text"], input[type="password"] {
+    width: 100%;
     padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     font-size: 16px;
 }
 
-input {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
 button {
-    background-color: #4CAF50;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
     color: white;
+    font-size: 16px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #218838;
 }
 
-#error-message {
-    color: red;
-    font-size: 14px;
-}
-
-.dashboard {
+.control-panel {
     display: flex;
-    flex-direction: row;
 }
 
 .sidebar {
     width: 250px;
     background-color: #333;
     color: white;
-    min-height: 100vh;
     padding: 20px;
+    min-height: 100vh;
 }
 
 .sidebar h2 {
     text-align: center;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
@@ -84,11 +78,12 @@ button:hover {
 }
 
 .sidebar ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
+    font-size: 18px;
     display: block;
     padding: 10px;
-    transition: background-color 0.3s;
+    transition: background 0.3s;
 }
 
 .sidebar ul li a:hover {
@@ -101,36 +96,6 @@ button:hover {
 }
 
 h1 {
-    color: #333;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-}
-
-input, button {
-    margin-top: 10px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-th {
-    background-color: #333;
-    color: white;
-    text-align: center;
-}
-
-td {
-    text-align: center;
+    font-size: 28px;
+    color: #444;
 }
