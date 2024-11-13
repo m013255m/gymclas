@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الصالة الرياضية</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2><i class="fas fa-dumbbell"></i> Gym Management</h2>
+    <ul>
+        <li><a href="#dashboard"><i class="fas fa-chart-line"></i> لوحة التحكم</a></li>
+        <li><a href="#members"><i class="fas fa-users"></i> الأعضاء</a></li>
+        <li><a href="#subscriptions"><i class="fas fa-id-card-alt"></i> الإشتراكات</a></li>
+        <li><a href="#classes"><i class="fas fa-calendar-alt"></i> الحصص</a></li>
+        <li><a href="#trainers"><i class="fas fa-user-tie"></i> المدربين</a></li>
+        <li><a href="#reports"><i class="fas fa-file-alt"></i> التقارير</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <div id="dashboard">
+        <h1>لوحة التحكم</h1>
+        <p>هنا تفاصيل لوحة التحكم العامة للصالة الرياضية.</p>
+    </div>
+
+    <div id="members" style="display: none;">
+        <h1>الأعضاء</h1>
+        <form id="memberForm">
+            <label>الاسم الكامل:</label>
+            <input type="text" name="fullName" placeholder="أدخل الاسم الكامل" required>
+            <label>البريد الإلكتروني:</label>
+            <input type="email" name="email" placeholder="أدخل البريد الإلكتروني" required>
+            <label>العمر:</label>
+            <input type="number" name="age" placeholder="أدخل العمر" required>
+            <label>رقم الهاتف:</label>
+            <input type="tel" name="phone" placeholder="أدخل رقم الهاتف" required>
+            <label>العنوان:</label>
+            <input type="text" name="address" placeholder="أدخل العنوان" required>
+            <button type="submit">إضافة عضو</button>
+        </form>
+        <h2>قائمة الأعضاء</h2>
+        <table id="memberTable">
+            <tr>
+                <th>الاسم</th>
+                <th>البريد الإلكتروني</th>
+                <th>العمر</th>
+                <th>الهاتف</th>
+                <th>العنوان</th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
