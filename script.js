@@ -1,5 +1,5 @@
-const adminUsername = "admin";
-const adminPassword = "password";
+const adminUsername = "halok";
+const adminPassword = "halok";
 
 document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
