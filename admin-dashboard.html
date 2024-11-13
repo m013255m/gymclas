@@ -3,91 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة تحكم الإدارة</title>
-    <link rel="stylesheet" href="style.css">
+    <title>إدارة الصالة الرياضية</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #444;
+        }
+        .sidebar a:hover {
+            background-color: #555;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h2>لوحة إدارة المستخدمين</h2>
-        <ul>
-            <li><a href="#addUser">إضافة مستخدم</a></li>
-            <li><a href="#viewUsers">عرض المستخدمين</a></li>
-        </ul>
-    </div>
 
-    <div class="content">
-        <div id="addUser">
-            <h1>إضافة مستخدم جديد</h1>
-            <form id="addUserForm">
-                <label>اسم المستخدم:</label>
-                <input type="text" id="newUsername" required>
-                <label>كلمة المرور:</label>
-                <input type="password" id="newPassword" required>
-                <button type="submit">إضافة المستخدم</button>
-            </form>
-        </div>
+<div class="sidebar">
+    <h2>إدارة الصالة الرياضية</h2>
+    <a href="#members">الأعضاء</a>
+    <a href="#subscriptions">الإشتراكات</a>
+    <a href="#classes">الحصص</a>
+    <a href="#trainers">المدربين</a>
+</div>
 
-        <div id="viewUsers" style="display: none;">
-            <h1>المستخدمين</h1>
-            <table id="userTable">
-                <tr>
-                    <th>اسم المستخدم</th>
-                    <th>كلمة المرور</th>
-                </tr>
-            </table>
-        </div>
-    </div>
+<div class="content">
+    <h1>مرحبا بك في لوحة التحكم</h1>
+    <p>هنا يمكنك إدارة جميع أقسام الصالة الرياضية.</p>
+</div>
 
-    <script>
-        // استرجاع وتخزين المستخدمين باستخدام localStorage
-        let users = JSON.parse(localStorage.getItem('users')) || [];
-
-        // إضافة مستخدم جديد
-        document.getElementById('addUserForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const username = document.getElementById('newUsername').value;
-            const password = document.getElementById('newPassword').value;
-
-            // إضافة المستخدم للمصفوفة
-            users.push({ username, password });
-            localStorage.setItem('users', JSON.stringify(users));
-
-            alert('تم إضافة المستخدم بنجاح!');
-
-            document.getElementById('newUsername').value = '';
-            document.getElementById('newPassword').value = '';
-
-            displayUsers();
-        });
-
-        // عرض جميع المستخدمين في الجدول
-        function displayUsers() {
-            const table = document.getElementById('userTable');
-            table.innerHTML = `<tr><th>اسم المستخدم</th><th>كلمة المرور</th></tr>`; // إعادة تعيين الجدول
-            users.forEach(user => {
-                const row = table.insertRow();
-                row.innerHTML = `<td>${user.username}</td><td>${user.password}</td>`;
-            });
-        }
-
-        // التبديل بين الأقسام
-        document.querySelectorAll('.sidebar ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelectorAll('.content > div').forEach(section => {
-                    section.style.display = 'none';
-                });
-
-                const target = link.getAttribute('href').substring(1);
-                document.getElementById(target).style.display = 'block';
-            });
-        });
-
-        // عرض قسم المستخدمين بشكل افتراضي
-        document.getElementById('viewUsers').style.display = 'block';
-
-        // عرض المستخدمين عند تحميل الصفحة
-        displayUsers();
-    </script>
 </body>
 </html>
