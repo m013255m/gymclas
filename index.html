@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <!-- واجهة تسجيل الدخول -->
-    <div class="login-container">
+    <div id="loginPage" class="login-container">
         <h2>تسجيل الدخول</h2>
         <form id="loginForm">
             <label for="username">اسم المستخدم</label>
@@ -17,13 +18,13 @@
             <input type="password" id="password" name="password" required>
             <button type="submit">تسجيل الدخول</button>
         </form>
-        <p id="error-message" style="color: red; display: none;">البيانات غير صحيحة!</p>
+        <p id="error-message" style="color: red; display: none;">البيانات غير صحيحة، حاول مرة أخرى.</p>
     </div>
 
-    <!-- لوحة التحكم (تكون مخفية في البداية) -->
-    <div class="dashboard" style="display: none;">
+    <!-- لوحة التحكم -->
+    <div id="controlPanel" class="control-panel" style="display: none;">
         <div class="sidebar">
-            <h2>Gym Management</h2>
+            <h2>إدارة الصالة الرياضية</h2>
             <ul>
                 <li><a href="#dashboard">لوحة التحكم</a></li>
                 <li><a href="#members">الأعضاء</a></li>
@@ -33,7 +34,7 @@
                 <li><a href="#reports">التقارير</a></li>
             </ul>
         </div>
-
+        
         <div class="content">
             <div id="dashboard">
                 <h1>لوحة التحكم</h1>
@@ -42,27 +43,9 @@
 
             <div id="members" style="display: none;">
                 <h1>الأعضاء</h1>
-                <form id="memberForm">
-                    <label>الاسم الكامل:</label>
-                    <input type="text" name="fullName" required>
-                    <label>العمر:</label>
-                    <input type="number" name="age" required>
-                    <label>رقم الهاتف:</label>
-                    <input type="tel" name="phone" required>
-                    <label>العنوان:</label>
-                    <input type="text" name="address" required>
-                    <button type="submit">إضافة عضو</button>
-                </form>
-                <h2>قائمة الأعضاء</h2>
-                <table id="memberTable">
-                    <tr>
-                        <th>الاسم</th>
-                        <th>العمر</th>
-                        <th>الهاتف</th>
-                        <th>العنوان</th>
-                    </tr>
-                </table>
+                <!-- إضافات أعضاء -->
             </div>
+            <!-- باقي الأقسام هنا... -->
         </div>
     </div>
 
