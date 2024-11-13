@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الصالة الرياضية</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div id="login" class="login-container">
+    <h2>تسجيل الدخول</h2>
+    <form id="loginForm">
+        <label>اسم المستخدم:</label>
+        <input type="text" id="username" required>
+        <label>كلمة المرور:</label>
+        <input type="password" id="password" required>
+        <button type="submit">دخول</button>
+    </form>
+</div>
+
+<div id="adminPanel" class="admin-panel" style="display:none;">
+    <div class="sidebar">
+        <h2>إدارة الصالة الرياضية</h2>
+        <ul>
+            <li><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+            <li><a href="#members"><i class="fas fa-user-friends"></i> الأعضاء</a></li>
+            <li><a href="#subscriptions"><i class="fas fa-calendar-alt"></i> الإشتراكات</a></li>
+            <li><a href="#classes"><i class="fas fa-dumbbell"></i> الحصص</a></li>
+            <li><a href="#trainers"><i class="fas fa-chalkboard-teacher"></i> المدربين</a></li>
+            <li><a href="#reports"><i class="fas fa-file-alt"></i> التقارير</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div id="dashboard" class="section">
+            <h1>لوحة التحكم</h1>
+            <p>هنا تفاصيل لوحة التحكم العامة للصالة الرياضية.</p>
+        </div>
+
+        <div id="members" class="section">
+            <h1>الأعضاء</h1>
+            <form id="memberForm">
+                <label>الاسم الكامل:</label>
+                <input type="text" name="fullName" required>
+                <label>العمر:</label>
+                <input type="number" name="age" required>
+                <label>رقم الهاتف:</label>
+                <input type="tel" name="phone" required>
+                <label>العنوان:</label>
+                <input type="text" name="address" required>
+                <button type="submit">إضافة عضو</button>
+            </form>
+            <h2>قائمة الأعضاء</h2>
+            <table id="memberTable">
+                <tr>
+                    <th>الاسم</th>
+                    <th>العمر</th>
+                    <th>الهاتف</th>
+                    <th>العنوان</th>
+                </tr>
+            </table>
+        </div>
+
+        <!-- بقية الأقسام: الاشتراكات، الحصص، المدربين، التقارير -->
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
