@@ -3,55 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إدارة الصالة الرياضية</title>
+    <title>لوحة إدارة المستخدمين</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             direction: rtl;
             padding: 20px;
         }
-        .sidebar {
-            width: 250px;
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            position: fixed;
-            height: 100%;
-        }
-        .sidebar h2 {
-            text-align: center;
-        }
-        .sidebar a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            margin: 15px 0;
+        input, button {
+            margin: 10px;
             padding: 10px;
-            background-color: #444;
-        }
-        .sidebar a:hover {
-            background-color: #555;
-        }
-        .content {
-            margin-left: 270px;
-            padding: 20px;
+            width: 200px;
         }
     </style>
 </head>
 <body>
 
-<div class="sidebar">
-    <h2>إدارة الصالة الرياضية</h2>
-    <a href="#members">الأعضاء</a>
-    <a href="#subscriptions">الإشتراكات</a>
-    <a href="#classes">الحصص</a>
-    <a href="#trainers">المدربين</a>
-</div>
+<h2>إدارة المستخدمين</h2>
+<form id="addUserForm">
+    <input type="text" id="newUsername" placeholder="اسم المستخدم" required><br>
+    <input type="password" id="newPassword" placeholder="كلمة المرور" required><br>
+    <button type="submit">إضافة مستخدم</button>
+</form>
 
-<div class="content">
-    <h1>مرحبا بك في لوحة التحكم</h1>
-    <p>هنا يمكنك إدارة جميع أقسام الصالة الرياضية.</p>
-</div>
+<h3>المستخدمين الحاليين:</h3>
+<ul id="userList"></ul>
+
+<script>
+    document.getElementById('addUserForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const newUsername = document.getElementById('newUsername').value;
+        const newPassword = document.getElementById('newPassword').value;
+
+        // تخزين بيانات المستخدمين في localStorage
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        users.push({ username: newUsername, password: newPassword });
+        localStorage.setItem('users', JSON.stringify(users));
+
+        // تحديث قائمة المستخدمين
+        displayUsers();
+    });
+
+    function displayUsers() {
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        const userList = document.getElementById('userList');
+        userList.innerHTML = '';
+        users.forEach(user => {
+            const li = document.createElement('li');
+            li.textContent = `اسم المستخدم: ${user.username}`;
+            userList.appendChild(li);
+        });
+    }
+
+    displayUsers();  // عرض المستخدمين عند تحميل الصفحة
+</script>
 
 </body>
 </html>
