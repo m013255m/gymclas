@@ -3,70 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إدارة الصالة الرياضية</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>تسجيل الدخول - لوحة الأدمن</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-
-<div id="login" class="login-container">
-    <h2>تسجيل الدخول</h2>
-    <form id="loginForm">
-        <label>اسم المستخدم:</label>
-        <input type="text" id="username" required>
-        <label>كلمة المرور:</label>
-        <input type="password" id="password" required>
-        <button type="submit">دخول</button>
-    </form>
-</div>
-
-<div id="adminPanel" class="admin-panel" style="display:none;">
-    <div class="sidebar">
-        <h2>إدارة الصالة الرياضية</h2>
-        <ul>
-            <li><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
-            <li><a href="#members"><i class="fas fa-user-friends"></i> الأعضاء</a></li>
-            <li><a href="#subscriptions"><i class="fas fa-calendar-alt"></i> الإشتراكات</a></li>
-            <li><a href="#classes"><i class="fas fa-dumbbell"></i> الحصص</a></li>
-            <li><a href="#trainers"><i class="fas fa-chalkboard-teacher"></i> المدربين</a></li>
-            <li><a href="#reports"><i class="fas fa-file-alt"></i> التقارير</a></li>
-        </ul>
+    <div class="login-container">
+        <h2>تسجيل الدخول - لوحة الأدمن</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="اسم المستخدم" required>
+            <input type="password" id="password" placeholder="كلمة المرور" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+        <div id="error" class="error"></div>
     </div>
 
-    <div class="content">
-        <div id="dashboard" class="section">
-            <h1>لوحة التحكم</h1>
-            <p>هنا تفاصيل لوحة التحكم العامة للصالة الرياضية.</p>
-        </div>
+    <script>
+        const adminUsername = "halok"; // اسم المستخدم
+        const adminPassword = "halok123"; // كلمة المرور
 
-        <div id="members" class="section">
-            <h1>الأعضاء</h1>
-            <form id="memberForm">
-                <label>الاسم الكامل:</label>
-                <input type="text" name="fullName" required>
-                <label>العمر:</label>
-                <input type="number" name="age" required>
-                <label>رقم الهاتف:</label>
-                <input type="tel" name="phone" required>
-                <label>العنوان:</label>
-                <input type="text" name="address" required>
-                <button type="submit">إضافة عضو</button>
-            </form>
-            <h2>قائمة الأعضاء</h2>
-            <table id="memberTable">
-                <tr>
-                    <th>الاسم</th>
-                    <th>العمر</th>
-                    <th>الهاتف</th>
-                    <th>العنوان</th>
-                </tr>
-            </table>
-        </div>
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault();
 
-        <!-- بقية الأقسام: الاشتراكات، الحصص، المدربين، التقارير -->
-    </div>
-</div>
+            const usernameInput = document.getElementById("username").value;
+            const passwordInput = document.getElementById("password").value;
+            const errorDiv = document.getElementById("error");
 
-<script src="script.js"></script>
+            if (usernameInput === adminUsername && passwordInput === adminPassword) {
+                window.location.href = "admin-panel.html"; // توجه إلى لوحة الأدمن عند النجاح
+            } else {
+                errorDiv.textContent = "اسم المستخدم أو كلمة المرور غير صحيحة.";
+            }
+        });
+    </script>
 </body>
 </html>
