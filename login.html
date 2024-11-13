@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول</title>
+    <title>تسجيل حساب</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="login-form-container">
-        <h2>تسجيل الدخول</h2>
-        <form id="loginForm">
+        <h2>إنشاء حساب جديد</h2>
+        <form id="registerForm">
             <label for="username">اسم المستخدم:</label>
             <input type="text" id="username" name="username" required>
 
@@ -19,31 +19,23 @@
             <label for="email">البريد الإلكتروني:</label>
             <input type="email" id="email" name="email" required>
 
-            <button type="submit">دخول</button>
+            <button type="submit">تسجيل</button>
         </form>
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // لمنع إرسال النموذج
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const email = document.getElementById('email').value;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const email = document.getElementById("email").value;
 
-            const ADMIN_USERNAME = 'halok';
-            const ADMIN_PASSWORD = 'halok';
-            const ADMIN_EMAIL = '0132552023654@gmail.com';
+            const user = { username, password, email, approved: false }; // لا موافقة تلقائية للمستخدم
+            localStorage.setItem(username, JSON.stringify(user)); // حفظ بيانات المستخدم في localStorage
 
-            // تحقق من بيانات المستخدم
-            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD && email === ADMIN_EMAIL) {
-                // تخزين بيانات المستخدم في LocalStorage
-                localStorage.setItem('user_id', username);
-                // التوجه إلى لوحة التحكم
-                window.location.href = 'dashboard.html';
-            } else {
-                alert('اسم المستخدم أو كلمة المرور غير صحيحة.');
-            }
+            alert("تم إنشاء الحساب بنجاح!");
+            window.location.href = "login.html"; // إعادة توجيه للمستخدم إلى صفحة تسجيل الدخول بعد التسجيل
         });
     </script>
 </body>
