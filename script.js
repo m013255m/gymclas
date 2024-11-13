@@ -1,51 +1,44 @@
-// تسجيل الدخول والتحقق من المستخدم
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+// تسجيل الدخول
+const loginForm = document.getElementById("loginForm");
+const errorMessage = document.getElementById("error-message");
 
-    if (username === "admin" && password === "1234") { // بيانات مبدئية
-        localStorage.setItem("loggedIn", true);
-        showAdminPage();
+loginForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+
+    if (username === "admin" && password === "1234") {
+        document.querySelector('.login-container').style.display = 'none';
+        document.querySelector('.dashboard').style.display = 'flex';
     } else {
-        alert("بيانات الدخول غير صحيحة");
+        errorMessage.style.display = 'block';
     }
 });
 
-// إظهار واجهة الأدمن إذا كان مسجلاً الدخول
-function showAdminPage() {
-    document.getElementById('loginPage').style.display = 'none';
-    document.getElementById('adminPage').style.display = 'flex';
-}
-
-if (localStorage.getItem("loggedIn")) {
-    showAdminPage();
-}
-
-// تسجيل الخروج
-document.getElementById('logoutButton').addEventListener('click', function() {
-    localStorage.removeItem("loggedIn");
-    location.reload();
+// تفعيل التنقل بين الأقسام في لوحة التحكم
+document.querySelectorAll('.sidebar ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelectorAll('.content > div').forEach(section => {
+            section.style.display = 'none';
+        });
+        const target = link.getAttribute('href').substring(1);
+        document.getElementById(target).style.display = 'block';
+    });
 });
 
-// CRUD للأعضاء
+document.getElementById('dashboard').style.display = 'block';
+
+// إضافة الأعضاء إلى الجدول
 document.getElementById('memberForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const member = {
-        fullName: e.target.fullName.value,
-        email: e.target.email.value,
-        age: e.target.age.value,
-        phone: e.target.phone.value,
-        address: e.target.address.value,
-    };
+    const fullName = e.target.fullName.value;
+    const age = e.target.age.value;
+    const phone = e.target.phone.value;
+    const address = e.target.address.value;
 
-    let members = JSON.parse(localStorage.getItem("members")) || [];
-    members.push(member);
-    localStorage.setItem("members", JSON.stringify(members));
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${fullName}</td><td>${age}</td><td>${phone}</td><td>${address}</td>`;
+    document.getElementById('memberTable').appendChild(row);
 
-    renderMembers();
     e.target.reset();
 });
-
-function renderMembers() {
-    const memberTable = document.getElementById
