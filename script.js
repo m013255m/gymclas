@@ -1,4 +1,3 @@
-
 document.querySelectorAll('.sidebar ul li a').forEach(link => {
     link.addEventListener('click', () => {
         document.querySelectorAll('.content > div').forEach(section => {
