@@ -4,98 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إدارة الصالة الرياضية</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #444;
+        }
+        .sidebar a:hover {
+            background-color: #555;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<!-- Login Page -->
-<div class="login-container" id="loginPage">
-    <div class="login-form">
-        <h2>تسجيل الدخول</h2>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="اسم المستخدم" required>
-            <input type="password" id="password" placeholder="كلمة المرور" required>
-            <button type="submit">دخول</button>
-        </form>
-        <p id="error-message" style="color: red; display: none;">اسم المستخدم أو كلمة المرور غير صحيحة.</p>
-    </div>
+<div class="sidebar">
+    <h2>إدارة الصالة الرياضية</h2>
+    <a href="#members">الأعضاء</a>
+    <a href="#subscriptions">الإشتراكات</a>
+    <a href="#classes">الحصص</a>
+    <a href="#trainers">المدربين</a>
 </div>
 
-<!-- Admin Panel -->
-<div class="admin-panel" id="adminPanel" style="display:none;">
-    <div class="sidebar">
-        <h2>Gym Management</h2>
-        <ul>
-            <li><a href="#dashboard" class="sidebar-link"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
-            <li><a href="#members" class="sidebar-link"><i class="fas fa-users"></i> الأعضاء</a></li>
-            <li><a href="#subscriptions" class="sidebar-link"><i class="fas fa-cogs"></i> الإشتراكات</a></li>
-            <li><a href="#classes" class="sidebar-link"><i class="fas fa-chalkboard-teacher"></i> الحصص</a></li>
-            <li><a href="#trainers" class="sidebar-link"><i class="fas fa-dumbbell"></i> المدربين</a></li>
-            <li><a href="#reports" class="sidebar-link"><i class="fas fa-file-alt"></i> التقارير</a></li>
-        </ul>
-    </div>
-
-    <div class="content">
-        <div id="dashboard">
-            <h1>لوحة التحكم</h1>
-            <p>هنا تفاصيل لوحة التحكم العامة للصالة الرياضية.</p>
-        </div>
-
-        <div id="members" style="display: none;">
-            <h1>الأعضاء</h1>
-            <form id="memberForm">
-                <label>الاسم الكامل:</label>
-                <input type="text" name="fullName" required>
-                <label>العمر:</label>
-                <input type="number" name="age" required>
-                <label>رقم الهاتف:</label>
-                <input type="tel" name="phone" required>
-                <label>العنوان:</label>
-                <input type="text" name="address" required>
-                <button type="submit" class="btn">إضافة عضو</button>
-            </form>
-            <h2>قائمة الأعضاء</h2>
-            <table id="memberTable">
-                <tr>
-                    <th>الاسم</th>
-                    <th>العمر</th>
-                    <th>الهاتف</th>
-                    <th>العنوان</th>
-                </tr>
-            </table>
-        </div>
-
-        <div id="subscriptions" style="display: none;">
-            <h1>الإشتراكات</h1>
-            <form id="subscriptionForm">
-                <label>اسم العضو:</label>
-                <input type="text" name="memberName" required>
-                <label>نوع الاشتراك:</label>
-                <select name="subscriptionType">
-                    <option value="شهري">شهري</option>
-                    <option value="ربع سنوي">ربع سنوي</option>
-                    <option value="سنوي">سنوي</option>
-                </select>
-                <label>تاريخ البدء:</label>
-                <input type="date" name="startDate" required>
-                <label>تاريخ الانتهاء:</label>
-                <input type="date" name="endDate" required>
-                <button type="submit" class="btn">إضافة اشتراك</button>
-            </form>
-            <h2>قائمة الإشتراكات</h2>
-            <table id="subscriptionTable">
-                <tr>
-                    <th>العضو</th>
-                    <th>نوع الاشتراك</th>
-                    <th>تاريخ البدء</th>
-                    <th>تاريخ الانتهاء</th>
-                </tr>
-            </table>
-        </div>
-    </div>
+<div class="content">
+    <h1>مرحبا بك في لوحة التحكم</h1>
+    <p>هنا يمكنك إدارة جميع أقسام الصالة الرياضية.</p>
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
