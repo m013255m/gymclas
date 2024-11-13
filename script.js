@@ -1,22 +1,24 @@
-const adminUsername = "halok";
-const adminPassword = "halok";
+const validAdmin = {
+    username: "halok",
+    password: "halok"
+};
 
-document.getElementById("loginForm").addEventListener("submit", function (e) {
+document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    if (username === adminUsername && password === adminPassword) {
-        document.getElementById("login").style.display = "none";
-        document.getElementById("adminPanel").style.display = "flex";
+    if (username === validAdmin.username && password === validAdmin.password) {
+        localStorage.setItem("adminLoggedIn", "true");
+        window.location.href = "admin.html"; // Redirect to Admin Panel after login
     } else {
-        alert("اسم المستخدم أو كلمة المرور غير صحيحة");
+        document.getElementById("error-message").style.display = "block";
     }
 });
 
-document.querySelectorAll('.sidebar ul li a').forEach(link => {
+document.querySelectorAll('.sidebar-link').forEach(link => {
     link.addEventListener('click', () => {
-        document.querySelectorAll('.content > .section').forEach(section => {
+        document.querySelectorAll('.content > div').forEach(section => {
             section.style.display = 'none';
         });
 
@@ -34,10 +36,4 @@ document.getElementById('memberForm').addEventListener('submit', function(e) {
     const phone = e.target.phone.value;
     const address = e.target.address.value;
 
-    const row = document.createElement('tr');
-    row.innerHTML = `<td>${fullName}</td><td>${age}</td><td>${phone}</td><td>${address}</td>`;
-    document.getElementById('memberTable').appendChild(row);
-
-    e.target.reset();
-});
-
+    const row = document.createElement
