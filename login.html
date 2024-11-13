@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>تسجيل الدخول</h2>
+        <form id="loginForm">
+            <label>اسم المستخدم:</label>
+            <input type="text" name="username" required>
+            <label>كلمة المرور:</label>
+            <input type="password" name="password" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+        <p id="loginError" style="color:red; display:none;">بيانات الدخول غير صحيحة.</p>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
