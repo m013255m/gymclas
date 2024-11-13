@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-form-container">
+        <h2>تسجيل الدخول</h2>
+        <form id="loginForm">
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">دخول</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const email = document.getElementById('email').value;
+
+            const ADMIN_USERNAME = 'halok';
+            const ADMIN_PASSWORD = 'halok';
+            const ADMIN_EMAIL = '0132552023654@gmail.com';
+
+            // تحقق من بيانات المستخدم
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD && email === ADMIN_EMAIL) {
+                // تخزين بيانات المستخدم في LocalStorage
+                localStorage.setItem('user_id', username);
+                // التوجه إلى لوحة التحكم
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('اسم المستخدم أو كلمة المرور غير صحيحة.');
+            }
+        });
+    </script>
+</body>
+</html>
