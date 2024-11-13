@@ -1,3 +1,4 @@
+/* Reset and general styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,126 +8,103 @@
 
 body {
     display: flex;
-    background-color: #f3f4f6;
+    background-color: #f4f4f9;
     direction: rtl;
     color: #333;
 }
 
+/* Login page styles */
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #333;
+    color: white;
+}
+
+.login-page form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.login-page form input, .login-page form button {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.login-page form button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+/* Admin page styles */
+.admin-page {
+    display: flex;
+    width: 100%;
+}
+
 .sidebar {
     width: 250px;
-    background: linear-gradient(145deg, #2c3e50, #34495e);
+    background-color: #444;
     color: #fff;
     min-height: 100vh;
     padding: 20px;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.sidebar h2 {
+.sidebar h2, .sidebar ul, .sidebar button {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
 }
 
-.sidebar ul {
-    list-style-type: none;
+.sidebar button {
+    background-color: #d9534f;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
 }
 
 .sidebar ul li {
-    margin-bottom: 15px;
+    list-style-type: none;
+    margin: 10px 0;
 }
 
 .sidebar ul li a {
     color: #ddd;
     text-decoration: none;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    transition: background 0.3s, color 0.3s;
-    border-radius: 5px;
-}
-
-.sidebar ul li a i {
-    margin-left: 10px;
-}
-
-.sidebar ul li a:hover {
-    background-color: #555;
-    color: #fff;
 }
 
 .content {
     flex: 1;
-    padding: 40px;
-    background-color: #ecf0f1;
-    animation: fadeIn 0.5s ease;
-}
-
-h1 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-size: 28px;
+    padding: 20px;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
 }
 
-label {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
 input, select, button {
+    margin: 5px 0;
     padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #28a745;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background-color: #218838;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-table, th, td {
+th, td {
     border: 1px solid #ddd;
-    padding: 10px;
-}
-
-th {
-    background-color: #2c3e50;
-    color: #fff;
+    padding: 8px;
     text-align: center;
-}
-
-td {
-    text-align: center;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
