@@ -1,45 +1,43 @@
-// إخفاء واجهة التحميل بعد تحميل الصفحة
-window.addEventListener('load', function() {
-    document.getElementById('loadingPage').style.display = 'none';
-});
+document.querySelectorAll('.sidebar ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelectorAll('.content > div').forEach(section => {
+            section.style.display = 'none';
+        });
 
-// تسجيل الدخول وإظهار لوحة التحكم
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    document.getElementById('loadingPage').style.display = 'flex';
-
-    setTimeout(() => {
-        if (username === 'admin' && password === '12345') {
-            document.getElementById('loginPage').style.display = 'none';
-            document.getElementById('controlPanel').style.display = 'flex';
-        } else {
-            document.getElementById('error-message').style.display = 'block';
-        }
-        document.getElementById('loadingPage').style.display = 'none';
-    }, 2000);
-});
-
-// تفعيل التنقل بين الأقسام
-document.querySelectorAll('.sidebar-link').forEach(link => {
-    link.addEventListener('click', function() {
-        document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
-        document.querySelector(this.getAttribute('href')).classList.add('active');
+        const target = link.getAttribute('href').substring(1);
+        document.getElementById(target).style.display = 'block';
     });
 });
 
-// إضافة عضو جديد
+document.getElementById('dashboard').style.display = 'block';
+
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+
+    // فحص بيانات تسجيل الدخول
+    if (username === 'admin' && password === 'admin123') {
+        document.getElementById('loginPage').style.display = 'none';
+        document.getElementById('controlPanel').style.display = 'flex';
+    } else {
+        document.getElementById('error-message').style.display = 'block';
+    }
+});
+
 document.getElementById('memberForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const table = document.getElementById('membersTable').querySelector('tbody');
-    const newRow = table.insertRow();
-    newRow.innerHTML = `
-        <td>${this.fullName.value}</td>
-        <td>${this.email.value}</td>
-        <td>${this.age.value}</td>
-        <td>${this.phone.value}</td>
-    `;
-    this.reset();
+    
+    const fullName = e.target.fullName.value;
+    const email = e.target.email.value;
+    const age = e.target.age.value;
+    const phone = e.target.phone.value;
+    const address = e.target.address.value;
+
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${fullName}</td><td>${email}</td><td>${age}</td><td>${phone}</td><td>${address}</td>`;
+    document.getElementById('memberTable').appendChild(row);
+
+    e.target.reset();
 });
