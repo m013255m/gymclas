@@ -2,50 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 body {
+    display: flex;
     background-color: #f4f4f9;
     direction: rtl;
-}
-
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #333;
-}
-
-.login-form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.login-form input {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.login-form button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.login-form button:hover {
-    background-color: #45a049;
 }
 
 .sidebar {
@@ -54,12 +17,13 @@ body {
     color: white;
     min-height: 100vh;
     padding: 20px;
-    position: fixed;
+    font-size: 18px;
 }
 
 .sidebar h2 {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 24px;
 }
 
 .sidebar ul {
@@ -84,7 +48,7 @@ body {
 }
 
 .content {
-    margin-left: 270px;
+    flex: 1;
     padding: 20px;
 }
 
@@ -100,6 +64,20 @@ form {
 
 label, input, select, button {
     margin: 5px 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #16a085;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1abc9c;
 }
 
 table {
@@ -121,18 +99,4 @@ th {
 
 td {
     text-align: center;
-}
-
-.btn {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.btn:hover {
-    background-color: #45a049;
 }
