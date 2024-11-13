@@ -24,14 +24,13 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
 // تفعيل التنقل بين الأقسام
 document.querySelectorAll('.sidebar-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
+    link.addEventListener('click', function() {
         document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
-        document.getElementById(this.getAttribute('href').substring(1)).classList.add('active');
+        document.querySelector(this.getAttribute('href')).classList.add('active');
     });
 });
 
-// إضافة عضو جديد للجدول
+// إضافة عضو جديد
 document.getElementById('memberForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const table = document.getElementById('membersTable').querySelector('tbody');
