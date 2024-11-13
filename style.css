@@ -2,51 +2,50 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 body {
-    display: flex;
     background-color: #f4f4f9;
     direction: rtl;
 }
 
-/* صفحة تسجيل الدخول */
 .login-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
-    width: 100%;
-    background-color: #e9ecef;
+    background-color: #333;
 }
 
-.login-container h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
+.login-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-#loginForm label {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-#loginForm input {
+.login-form input {
+    width: 80%;
     padding: 10px;
-    font-size: 16px;
-    margin-bottom: 15px;
-    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-#loginForm button {
+.login-form button {
     padding: 10px 20px;
-    font-size: 18px;
-    background-color: #007bff;
+    background-color: #4CAF50;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-form button:hover {
+    background-color: #45a049;
 }
 
 .sidebar {
@@ -55,12 +54,12 @@ body {
     color: white;
     min-height: 100vh;
     padding: 20px;
+    position: fixed;
 }
 
 .sidebar h2 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 24px;
 }
 
 .sidebar ul {
@@ -85,7 +84,7 @@ body {
 }
 
 .content {
-    flex: 1;
+    margin-left: 270px;
     padding: 20px;
 }
 
@@ -122,4 +121,18 @@ th {
 
 td {
     text-align: center;
+}
+
+.btn {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #45a049;
 }
