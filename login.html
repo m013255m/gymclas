@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل دخول الإدارة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>تسجيل دخول الإدارة</h2>
+        <form id="loginForm">
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" required>
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" required>
+            <button type="submit">دخول</button>
+        </form>
+    </div>
+
+    <script>
+        // التحقق من تسجيل الدخول باستخدام localStorage
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            const storedAdmin = JSON.parse(localStorage.getItem('admin'));
+
+            if (storedAdmin && storedAdmin.username === username && storedAdmin.password === password) {
+                // التوجه إلى لوحة التحكم للـ Admin إذا كانت البيانات صحيحة
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                alert('اسم المستخدم أو كلمة المرور غير صحيحة');
+            }
+        });
+    </script>
+</body>
+</html>
