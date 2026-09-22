@@ -1,0 +1,6 @@
+{
+  "name": "RCN MANAGER",
+  "description": "Universal Activity & Member Management System (Offline-first, Black & White)",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
